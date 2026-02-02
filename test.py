@@ -18,7 +18,10 @@ from misc_utils import print_nvidia_smi, \
     set_reproducibility, seed_worker, get_args, set_args_dirs, load_config
 # -----------------------------------------------------------------------------/
 
+
 def reconstruct(pred, seg):
+    """ (docstring)
+    """
     pred_patch, seg_patch, new_preds, new_segs = list(),list(),list(),list()
     for i in range(len(pred)):
         pred_patch.append(pred[i])
@@ -30,10 +33,12 @@ def reconstruct(pred, seg):
     recon_segs = np.expand_dims(np.concatenate(new_segs, axis=1), 0)
     
     return recon_preds, recon_segs
+    # -------------------------------------------------------------------------/
+
 
 def evaluate(args, model, data_loader, save_img=False):
-    ''' set model to evaluate mode '''
-    model.eval()
+    """ (docstring)
+    """
     preds_dict = dict()
     gts_dict = dict()
 
@@ -42,6 +47,7 @@ def evaluate(args, model, data_loader, save_img=False):
     loss = 0
     count = 0
 
+    model.eval() # <-- 切換到驗證模式, 鎖定 BatchNorm + 停用 Dropout
     with torch.no_grad():
         for idx, (img_names, imgs, segs) in enumerate(data_loader):
             if args.patch == True:
@@ -83,8 +89,9 @@ def evaluate(args, model, data_loader, save_img=False):
         for img_name, pred in preds_dict.items():
             tifffile.imwrite(os.path.join(args.seg_dir, img_name), (pred*255).astype('uint8'))
 
-
     return meanIoU, meanloss
+    # -------------------------------------------------------------------------/
+
 
 if __name__ == '__main__':
     
@@ -139,9 +146,9 @@ if __name__ == '__main__':
     best_model_path = Path(args.checkpoints).joinpath(f"model_{args.model}_best_pth.tar") # 
     best_checkpoint = torch.load(best_model_path); print(f"load model : {best_model_path.resolve()}") # 
     model.load_state_dict(best_checkpoint)
-    iou, loss = evaluate(args, model, test_loader, save_img=True)
-    print('Testing iou: {}'.format(iou))
-    print('Testing loss: {}'.format(loss))
+    mIoU, test_loss = evaluate(args, model, test_loader, save_img=True)
+    print('Testing mIoU: {}'.format(mIoU))
+    print('Testing loss: {}'.format(test_loss.data.cpu().numpy()))
     print()
     print_nvidia_smi() # 
     # -------------------------------------------------------------------------/

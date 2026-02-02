@@ -26,11 +26,17 @@ from misc_utils import print_nvidia_smi, \
     set_reproducibility, seed_worker, get_args, set_args_dirs, dump_config
 # -----------------------------------------------------------------------------/
 
+
 def save_model(model, save_path):
+    """ (docstring)
+    """
     torch.save(model.state_dict(), save_path)
+    # -------------------------------------------------------------------------/
+
 
 def main():
-    
+    """ (docstring)
+    """
     args = get_args("train")  # 
 
     ''' Setup GPU '''
@@ -97,8 +103,11 @@ def main():
     iters = 0
     best_mIoU = 0
     best_val_loss = np.inf # 
+    best_epoch = -1
     for epoch in range(1, args.epoch + 1):
-        model.train()
+
+        # /--- Training the Model ---/
+        model.train() # <-- 切回訓練模式
         for idx, (img_ids, imgs, segs) in enumerate(train_loader): # 
             train_info = 'Epoch: [{0}][{1}/{2}], [{3}]'.format(epoch, idx+1, len(train_loader), img_ids) # 
             iters += 1
@@ -129,17 +138,14 @@ def main():
             writer.add_scalar('loss', loss.data.cpu().numpy(), iters)
             train_info += ' loss: {:4f}'.format(loss.data.cpu().numpy())
             print(train_info)
-        
+
+        # /--- Evaluate the Model ---/
         if epoch % args.val_epoch == 0:
-            # Evaluate the Model
-            with torch.no_grad():
-                mIoU, val_loss = evaluate(args, model, val_loader)
+            mIoU, val_loss = evaluate(args, model, val_loader)
             writer.add_scalar('val_mIoU', mIoU, epoch)
             print('Epoch [{}]: mean IoU: {}'.format(epoch, mIoU))
             writer.add_scalar('val_loss', val_loss.data.cpu().numpy(), epoch)
             print('Epoch [{}]: validation loss: {}'.format(epoch, val_loss.data.cpu().numpy()))
-            
-            print(); print("="*80, "\n") # 
 
             # Save Best Model 
             if val_loss < best_val_loss - 1e-4:
@@ -147,8 +153,11 @@ def main():
                 #best_mIoU = mIoU
                 best_val_loss = val_loss
                 best_epoch = epoch
+
+            # CLI divider
+            print(); print("="*80, "\n") # 
         
-        ''' Save Model (Define in above)'''
+        # /--- Save Model (routine) ---/
         if epoch % 50 == 0:
             save_model(model, Path(args.checkpoints).joinpath(f"model_{args.model}_{epoch}_pth.tar")) # 
     
@@ -157,7 +166,6 @@ def main():
     print_nvidia_smi() # 
     # writer.add_graph(model, imgs) #  ( 改成 evaluate 再存 )
     # -------------------------------------------------------------------------/
-
 
 
 if __name__ == '__main__':
