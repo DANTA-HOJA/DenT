@@ -73,7 +73,7 @@ def get_args(mode):
     parser.add_argument('--source_image', type=str, default='source', help='which source to be trained')
 
     """ Training parameters """
-    parser.add_argument('--gpu', default=0, type=int)
+    # parser.add_argument('--gpu', default=0, type=int)
     
     if mode == "train":
         parser.add_argument('--epoch', default=200, type=int, help="number of training iterations")
