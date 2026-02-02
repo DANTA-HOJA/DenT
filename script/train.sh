@@ -6,7 +6,7 @@ conda activate "DenT-tensorboard-py310"
 
 # variables
 target="target" # options: target / target_dna
-model="CusDenT" # options: (DenT) DenT, CusDenT(revision)
+model="CusDenT" # options: (DenT-Repo) DenT, CusDenT(revision)
 data_root="../data"
 result_root="../results"
 
@@ -14,7 +14,6 @@ python "../train.py" \
     --data_path "$data_root/DenT" \
     --target_image "$target" \
     --source_image "source" \
-    --gpu 0 \
     --epoch 200 \
     --val_epoch 1 \
     --train_batch 2 \
