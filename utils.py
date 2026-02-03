@@ -62,8 +62,28 @@ def iou_score(output, target):
 
 
 def mean_iou_score(pred, labels, num_classes):
-    """ Compute mean IoU score over classes
-        - `class #0 = background`
+    """
+    Compute mean Intersection over Union (mIoU) over all classes.
+
+    Parameters
+    ----------
+    pred : np.ndarray
+        Predicted segmentation mask as a class index map.
+        Each pixel value should be an integer in [0, num_classes-1].
+        (For binary segmentation, values should be 0 or 1.)
+
+    labels : np.ndarray
+        Ground truth segmentation mask with the same format as `pred`.
+
+    num_classes : int
+        Total number of classes, including background.
+        Class 0 is assumed to be background.
+
+    Notes
+    -----
+    - Inputs must be **discrete class labels**, NOT probabilities or logits.
+    - If predictions are probabilities, apply argmax (multi-class) or
+      thresholding (binary) before calling this function.
     """
     mean_iou = 0
     for i in range(num_classes):
@@ -80,8 +100,29 @@ def mean_iou_score(pred, labels, num_classes):
 
 
 def mean_dice(pred, labels, num_classes):
-    """ Compute dice score over classes
-        - `class #0 = background`
+    """
+    Compute mean Dice coefficient (F1-score) over all classes.
+
+    Parameters
+    ----------
+    pred : np.ndarray
+        Predicted segmentation mask as a class index map.
+        Each pixel value should be an integer in [0, num_classes-1].
+        (For binary segmentation, values should be 0 or 1.)
+
+    labels : np.ndarray
+        Ground truth segmentation mask with the same format as `pred`.
+
+    num_classes : int
+        Total number of classes, including background.
+        Class 0 is assumed to be background.
+
+    Notes
+    -----
+    - Inputs must be **discrete class labels**, NOT probabilities or logits.
+    - If predictions are probabilities, apply argmax (multi-class) or
+      thresholding (binary) before calling this function.
+    - Dice score here is equivalent to the F1-score for each class.
     """
     mean_dice = 0
     for i in range(num_classes):
