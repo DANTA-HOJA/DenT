@@ -1,4 +1,5 @@
 import argparse
+import builtins
 import glob
 import os
 
@@ -7,6 +8,7 @@ import scipy.misc
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from rich.console import Console
 # -----------------------------------------------------------------------------/
 
 
@@ -61,7 +63,8 @@ def iou_score(output, target):
     # -------------------------------------------------------------------------/
 
 
-def mean_iou_score(pred, labels, num_classes):
+def mean_iou_score(pred, labels, num_classes,
+                   console:Console | None = None):
     """
     Compute mean Intersection over Union (mIoU) over all classes.
 
@@ -85,6 +88,11 @@ def mean_iou_score(pred, labels, num_classes):
     - If predictions are probabilities, apply argmax (multi-class) or
       thresholding (binary) before calling this function.
     """
+    if console is None:
+        print = builtins.print
+    else:
+        print = console.print
+    
     mean_iou = 0
     for i in range(num_classes):
         tp_fp = np.sum(pred == i)
@@ -99,7 +107,8 @@ def mean_iou_score(pred, labels, num_classes):
     # -------------------------------------------------------------------------/
 
 
-def mean_dice(pred, labels, num_classes):
+def mean_dice(pred, labels, num_classes,
+              console:Console | None = None):
     """
     Compute mean Dice coefficient (F1-score) over all classes.
 
@@ -124,6 +133,11 @@ def mean_dice(pred, labels, num_classes):
       thresholding (binary) before calling this function.
     - Dice score here is equivalent to the F1-score for each class.
     """
+    if console is None:
+        print = builtins.print
+    else:
+        print = console.print
+    
     mean_dice = 0
     for i in range(num_classes):
         tp = np.sum((pred == i) * (labels == i))

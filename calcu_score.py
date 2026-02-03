@@ -1,21 +1,25 @@
 import os
 import sys
 from pathlib import Path
-from colorama import Fore, Back, Style
 
 import numpy as np
 import skimage
+from rich.console import Console
 
+""" self-defined modules """
 from data import resize_3D
-from utils import mean_iou_score, mean_dice
 from misc_utils import get_score_args
+from utils import mean_dice, mean_iou_score
+
+console = Console(record=True)
+print = console.print
 # -----------------------------------------------------------------------------/
 
 
 def cli_divide_line():
     """
     """
-    print(f"\n{Fore.GREEN}{'='*100}{Style.RESET_ALL}")
+    print(f"\n[green]{'='*100}[/]")
     # -------------------------------------------------------------------------/
     
 
@@ -45,7 +49,7 @@ def dump_info(img, desc):
 def read_and_preprocess_img(img_path:Path, desc:str):
     """
     """
-    print(f"\n{Fore.YELLOW}{desc}_path: '{img_path}'{Style.RESET_ALL}")
+    print(f"\n[yellow]{desc}_path: '{img_path}'[/]")
     
     img = skimage.io.imread(img_path)
     dump_info(img, desc)
@@ -94,7 +98,7 @@ if __name__ == '__main__':
     gt_img_list: list = []
     for i, (pred_path, gt_path) in enumerate(zip(pred_paths, gt_paths)):
         
-        cli_divide_line(); print(f"{Fore.MAGENTA}[{i+1}]{Style.RESET_ALL}")
+        cli_divide_line(); print(f"[magenta][{i+1}][/]")
         assert str(pred_path).split(os.sep)[-1] == \
             str(gt_path).split(os.sep)[-1], "file_name not match"
 
@@ -108,7 +112,11 @@ if __name__ == '__main__':
     preds = np.concatenate(pred_img_list)
     gts = np.concatenate(gt_img_list)
     cli_divide_line()
-    mean_iou_score(preds, gts, num_classes=2)
-    mean_dice(preds, gts, num_classes=2)
+    mean_iou_score(preds, gts, num_classes=2, console=console)
+    mean_dice(preds, gts, num_classes=2, console=console)
+    
+    # save console output to file
+    cli_out_path = dent_pred_dir.parent.joinpath(f"{Path(__file__).stem}.txt")
+    console.save_text(cli_out_path)
     
     sys.exit()
