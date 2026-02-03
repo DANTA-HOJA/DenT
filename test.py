@@ -1,21 +1,18 @@
-import os 
-import torch
-import tifffile
-
-import argparse
-import DenT
-import data
-from utils import *
-import torch.nn as nn
-import torch.nn.functional as F
-
-# 
+import os
 import sys
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
-from misc_utils import print_nvidia_smi, \
-    set_reproducibility, seed_worker, get_args, set_args_dirs, load_config
+import numpy as np
+import tifffile
+import torch
+
+""" self-defined modules """
+import data
+import DenT
+from misc_utils import (get_args, load_config, print_nvidia_smi, seed_worker,
+                        set_args_dirs, set_reproducibility)
+from utils import BCEDiceLoss, iou_score
 # -----------------------------------------------------------------------------/
 
 

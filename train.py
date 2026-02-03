@@ -1,26 +1,24 @@
-import argparse
 import os
+import sys
 import warnings
+from datetime import datetime
+from pathlib import Path
 
 import numpy as np
 import torch
 import torch.optim as optim
 from tensorboardX import SummaryWriter
 
-import data
-import DenT
-from test import evaluate
-from utils import BCEDiceLoss
-
 warnings.filterwarnings("ignore", '.*output shape of zoom.*')
 
-# 
-import sys
-from datetime import datetime
-from pathlib import Path
+""" self-defined modules """
+from test import evaluate
 
+import data
+import DenT
 from misc_utils import (dump_config, get_args, print_nvidia_smi, seed_worker,
                         set_args_dirs, set_reproducibility)
+from utils import BCEDiceLoss
 # -----------------------------------------------------------------------------/
 
 
