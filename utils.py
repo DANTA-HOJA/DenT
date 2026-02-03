@@ -1,13 +1,18 @@
+import argparse
+import glob
+import os
+
 import numpy as np
 import scipy.misc
-import argparse
-import os
-import glob
 import torch
-import torch.nn as nn # 
+import torch.nn as nn
 import torch.nn.functional as F
+# -----------------------------------------------------------------------------/
+
 
 class BCEDiceLoss(nn.Module):
+    """ (docstring)
+    """
     def __init__(self):
         super().__init__()
 
@@ -21,12 +26,14 @@ class BCEDiceLoss(nn.Module):
         intersection = (input * target)
         dice = (2. * intersection.sum(1) + smooth) / (input.sum(1) + target.sum(1) + smooth)
         dice = 1 - dice.sum() / num
+        
         return 0.5 * bce + 0.5 * dice
+    # -------------------------------------------------------------------------/
+
 
 def read_masks(seg_dir, seg_h=352, seg_w=448):
-    '''
-    Read masks from directory
-    '''
+    """ Read masks from directory
+    """
     seg_paths = glob.glob(os.path.join(seg_dir,'*.png'))
     seg_paths.sort()
     segs = np.zeros((len(seg_paths), seg_h, seg_w))
@@ -35,8 +42,12 @@ def read_masks(seg_dir, seg_h=352, seg_w=448):
         segs[idx, :, :] = seg
     
     return segs
+    # -------------------------------------------------------------------------/
+
 
 def iou_score(output, target):
+    """ (docstring)
+    """
     smooth = 1e-5
 
     output_ = output > 0.5 # True or False
@@ -47,11 +58,13 @@ def iou_score(output, target):
     print('iou: %f\n' % iou) # 
 
     return iou
+    # -------------------------------------------------------------------------/
+
 
 def mean_iou_score(pred, labels, num_classes):
-    ''' Compute mean IoU score over classes
+    """ Compute mean IoU score over classes
         - `class #0 = background`
-    '''
+    """
     mean_iou = 0
     for i in range(num_classes):
         tp_fp = np.sum(pred == i)
@@ -63,11 +76,13 @@ def mean_iou_score(pred, labels, num_classes):
     print('|--> mean_iou: %f\n' % mean_iou)
 
     return mean_iou
+    # -------------------------------------------------------------------------/
+
 
 def mean_dice(pred, labels, num_classes):
-    ''' Compute dice score over classes
+    """ Compute dice score over classes
         - `class #0 = background`
-    '''
+    """
     mean_dice = 0
     for i in range(num_classes):
         tp = np.sum((pred == i) * (labels == i))
@@ -79,6 +94,8 @@ def mean_dice(pred, labels, num_classes):
     print('|--> mean_dice: %f\n' % mean_dice)
 
     return mean_dice
+    # -------------------------------------------------------------------------/
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
