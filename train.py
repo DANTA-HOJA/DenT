@@ -1,7 +1,6 @@
 import argparse
 import os
 import warnings
-from test import evaluate
 
 import numpy as np
 import torch
@@ -10,6 +9,7 @@ from tensorboardX import SummaryWriter
 
 import data
 import DenT
+from test import evaluate
 from utils import BCEDiceLoss
 
 warnings.filterwarnings("ignore", '.*output shape of zoom.*')
