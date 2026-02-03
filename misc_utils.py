@@ -183,7 +183,7 @@ def get_score_args():
     """
     parser = argparse.ArgumentParser(description="Calculate 'IoU' and 'Dice' score")
     
-    parser.add_argument('--seg_results', type=str, required=True, help="path to 'seg_results' under each result folder")
+    parser.add_argument('--dent_seg_results', type=str, required=True, help="path to 'seg_results' under each result folder")
     parser.add_argument('--dent_seg_gt', type=str, required=True, help="path to ground-truth of 'DenT' segmentation")
     
     args = parser.parse_args()

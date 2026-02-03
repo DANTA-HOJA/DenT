@@ -80,7 +80,7 @@ if __name__ == '__main__':
     args = get_score_args()
     
     # pred_dir
-    dent_pred_dir: Path = Path(args.seg_results)
+    dent_pred_dir: Path = Path(args.dent_seg_results)
     # gt_dir
     dent_gt_dir: Path = Path(args.dent_seg_gt)
 
