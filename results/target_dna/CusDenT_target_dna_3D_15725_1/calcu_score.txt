@@ -1,0 +1,469 @@
+
+====================================================================================================
+[1]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/1.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/1.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[2]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/3.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/3.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[3]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/5.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/5.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[4]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/6.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/6.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[5]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/7.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/7.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[6]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/24.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/24.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[7]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/28.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/28.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[8]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/30.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/30.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[9]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/32.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/32.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[10]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/33.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/33.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[11]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/39.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/39.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[12]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/53.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/53.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[13]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/58.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/58.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[14]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/60.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/60.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[15]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/66.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/66.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[16]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/67.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/67.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+[17]
+
+pred_path: '../results/target_dna/CusDenT_target_dna_3D_15725_1/seg_results/69.tif'
+
+pred :
+shape: (32, 256, 256)
+dtype: uint8
+range: (0, 254)
+
+>>> pred --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+gt_path: '../data/DenT/test/target_dna/69.tif'
+
+gt :
+shape: (32, 917, 917)
+dtype: uint8
+range: (0, 255)
+
+>>> gt --> resize --> range: (0.0, 1.0) --> mask (threshold = 0.5) :
+shape: (32, 256, 256)
+dtype: bool
+range: (False, True)
+
+====================================================================================================
+|- class #0 : 0.93198
+|- class #1 : 0.30202
+|--> mean_iou: 0.616999
+
+|- class #0 : 0.96479
+|- class #1 : 0.46392
+|--> mean_dice: 0.714357
+
