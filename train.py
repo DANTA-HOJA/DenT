@@ -110,8 +110,9 @@ def main():
             if args.patch == True:
                 imgs = imgs.contiguous().view(-1, 1, 32, 256, 256)
                 segs = segs.contiguous().view(-1, 1, 32, 256, 256)
-                        
+            
             imgs, segs = imgs.cuda(), segs.cuda()
+            print(f"imgs_shape: {imgs.shape}, segs_shape: {segs.shape}")
             
             if args.deep_supervision:
                 outputs = model(imgs)
